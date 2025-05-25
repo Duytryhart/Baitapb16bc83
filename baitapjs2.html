@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Operations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-4xl mx-auto p-6">
+    <form class="grid grid-cols-1 lg:grid-cols-2 gap-4 bg-white p-6 rounded-xl shadow-md">
+      <input type="number" id="inputNum" placeholder="Nhập số n" class="form__input border p-2 rounded">
+      <button type="button" onclick="getNumber()"
+        class="btn btn--primary bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Thêm số</button>
+      <div class="col-span-1 lg:col-span-2">
+        <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtArray"></span></div>
+      </div>
+    </form>
+
+    <div class="mt-6 divide-y divide-gray-300">
+      <!-- Accordion Item Example -->
+      <div class="py-4">
+        <button type="button" onclick="sumPositive()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">1️⃣ Tổng số dương</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtSum"></span></div>
+        </div>
+      </div>
+
+      <!-- Copy and customize more blocks below for each task -->
+      <div class="py-4">
+        <button type="button" onclick="countPositive()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">2️⃣ Đếm số dương</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtCount"></span></div>
+        </div>
+      </div>
+
+      <!-- Add more task sections here in similar style -->
+
+      <div class="py-4">
+        <button type="button" onclick="findMin()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">3️⃣ Tìm số nhỏ nhất</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtMin"></span></div>
+        </div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="nhoDuongNhat()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">4. Tìm dương nhỏ nhất </button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtduongNhoNhat"></span></div>
+        </div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="soChanCuoi()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">5. Tìm số chan cuoi cung</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtChanCuoiCung"></span></div>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold">6️⃣ Đổi chỗ</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <input type="number" class="form-input p-2 border rounded" id="inputIndex1" placeholder="Nhập vị trí 1">
+          <input type="number" class="form-input p-2 border rounded" id="inputIndex2" placeholder="Nhập vị trí 2">
+        </div>
+        <button class="btn bg-blue-500 text-white px-4 py-2 mt-2 rounded" onclick="changePosition()">Đổi chỗ</button>
+        <div class="mt-2 bg-green-100 p-2 rounded">👉 <span id="txtChangePos"></span></div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="xepTangDan()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">7. sap xep tang dan</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtSapXepTang"></span></div>
+        </div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="lastOffchan()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">8. Tìm số nguyen to dau tien</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtSoNguyenToDauTien"></span></div>
+        </div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="firthOffNguye()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">9. Dem so nguyên</button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtDemSoNguye"></span></div>
+        </div>
+      </div>
+      <div class="py-4">
+        <button type="button" onclick="soSanhLuongAD()"
+          class="w-full text-left bg-blue-100 px-4 py-2 rounded-t-lg font-semibold">10. So Sanh so luong am va duong
+        </button>
+        <div class="bg-white px-4 py-3 rounded-b-lg shadow">
+          <div class="bg-green-100 text-green-700 p-3 rounded">👉 <span id="txtSoSanhLuongAmDuong"></span></div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+  <script src="./main.js"></script>
+</body>
+
+</html>
